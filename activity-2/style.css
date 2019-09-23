@@ -324,19 +324,19 @@ address {
 }
 
 .github {
-	content: url(images/github.svg?sanitize=1);
+	content: url(images/github.png);
 }
 
 .gmail {
-	content: url(images/gmail.svg?sanitize=1);
+	content: url(images/gmail.png);
 }
 
 .itchio {
-	content: url(images/itchio.svg?sanitize=1);
+	content: url(images/itchio.png);
 }
 
 .twitter {
-	content: url(images/twitter.svg?sanitize=1);
+	content: url(images/twitter.png);
 }
 
 /* If the screen width is 768px or more... */
