@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif&display=swap');
+
+/* Mostly color definitions */
+:root {
+	--beige: #f6f7e6;
+	--burnt-sienna: #e97e61;
+	--cinnabar: #e73e26;
+	--blue-chill: #14818f;
+	--fall-green: #ecedc7;
+	--gold-sand: #ebbd9b;
+	--firefly: #0c1926;
+	--scooter: #24cfda;
+	
+	--accordion-child-background-color: var(--cinnabar);
+	--accordion-button-background-color: var(--blue-chill);
+	--accordion-button-color: var(--fall-green);
+	--accordion-button-hover-background-color: var(--scooter);
+	--accordion-button-hover-color: var(--firefly);
+	
+	--body-background-color: var(--fall-green);
+	
+	--hr-color: var(--firefly);
+	
+	--sitelink-background-color: var(--cinnabar);
+	--sitelink-color: var(--gold-sand);
+	--sitelink-hover-background-color: var(--burnt-sienna);
+	--sitelink-hover-color: var(--beige);
+}
+
+/* Common styles for pretty much everything */
+body {
+	background-color: var(--body-background-color);
+	/* Most of the page will have sans-serif fonts, which look good */
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+}
+
+header {
+	/* Center all of the header */
+	text-align: center;
+	color: var(--header-color);
+}
+
+h1 {
+	font-family: Noto Serif;
+	font-size: 3.5em;
+	margin: 25px;
+}
+
+.accordion .accordion-content {
+	/* Remove margin and padding */
+	margin: 0;
+	padding: 0;
+	/* This hides the list if the menu is collapsed */
+	overflow: hidden;
+	/* By default, set the height to 0 */
+	max-height: 0;
+	transition: max-height .5s ease;
+}
+
+.accordion input {
+	/* Don't display the checkbox behind this */
+	display: none;
+}
+
+.accordion input:checked ~ .accordion-content {
+	/* Have the menu expand to at least its full height */
+	max-height: 999px;
+}
+
+.accordion input:checked ~ label .accordion-arrow {
+	/* If checkbox checked, stop bobbing */
+	animation: none;
+}
+
+.accordion label {
+	display: block; /* This fixes things */
+	position: relative;
+	/* Set the width to that of the whole page */
+	width: 100%;
+	/* Make sure the whole page MEANS the whole page */
+	box-sizing: border-box;
+	/* Set colors */
+	background-color: var(--accordion-button-background-color);
+	color: var(--accordion-button-color);
+	/* Set the border */
+	border: 2px solid black;
+	border-radius: 8px;
+	/* Add margins */
+	margin: 10px auto;
+	/* Add padding */
+	padding: .25em .5em;
+	/* Change font */
+	font-size: 30px;
+	font-variant: small-caps;
+	transition: background-color .5s ease, color .5s ease;
+}
+
+.accordion label .accordion-arrow {
+	/* Somehow this makes the containing box not grow */
+	position: absolute;
+	padding-left: .5em;
+	/* Automatic content generation ftw */
+	content: url(https://img.icons8.com/material-rounded/30/ecedc7/circled-chevron-down.png);
+	/* Bob up and down using padding-top */
+	animation: bob 1s infinite;
+}
+
+@keyframes bob {
+	0% {
+		padding-top: 0em;
+	}
+	50% {
+		padding-top: .25em;
+	}
+	100% {
+		padding-top: 0em;
+	}
+}
+
+.accordion label:hover {
+	background-color: var(--accordion-button-hover-background-color);
+	color: var(--accordion-button-hover-color);
+	/* Change the cursor, so the user knows to click on it */
+	cursor: pointer;
+}
+
+.accordion-content .sitelink {
+	display: block; /* This fixes things */
+	background-color: var(--sitelink-background-color);
+	color: var(--sitelink-color);
+	width: fit-content;
+	/* Center the button horizontally */
+	margin: 0 auto;
+	padding: .3em;
+	border: 2px solid black;
+	border-radius: 15px;
+	font-family: Garamond, Times New Roman, serif;
+	font-size: 150%;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	transition: background-color .5s ease, color .5s ease;
+}
+
+.accordion-content .sitelink:hover {
+	background-color: var(--sitelink-hover-background-color);
+	color: var(--sitelink-hover-color);
+}
+
+hr {
+	border: 2px solid var(--hr-color);
+}
+
+address {
+	line-height: 1.5em;
+}
+
+/* Social media logos */
+.social-logo {
+	position: relative;
+	width: 1.5em;
+	height: 1.5em;
+	top: .3em;
+}
+
+.github {
+	content: url(images/github.png);
+}
+
+.gmail {
+	content: url(images/gmail.png);
+}
+
+.itchio {
+	content: url(images/itchio.png);
+}
+
+.twitter {
+	content: url(images/twitter.png);
+}
