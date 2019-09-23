@@ -118,13 +118,6 @@ h1 {
 	}
 }
 
-.accordion label:hover {
-	background-color: var(--accordion-button-hover-background-color);
-	color: var(--accordion-button-hover-color);
-	/* Change the cursor, so the user knows to click on it */
-	cursor: pointer;
-}
-
 .accordion-content .sitelink {
 	display: block; /* This fixes things */
 	background-color: var(--sitelink-background-color);
@@ -141,11 +134,6 @@ h1 {
 	text-decoration: none;
 	text-align: center;
 	transition: background-color .5s ease, color .5s ease;
-}
-
-.accordion-content .sitelink:hover {
-	background-color: var(--sitelink-hover-background-color);
-	color: var(--sitelink-hover-color);
 }
 
 hr {
@@ -178,4 +166,19 @@ address {
 
 .twitter {
 	content: url(images/twitter.png);
+}
+
+/* Display hover effects only on non-mobile browsers */
+@media not all and (pointer: coarse) {
+	.accordion label:hover {
+		background-color: var(--accordion-button-hover-background-color);
+		color: var(--accordion-button-hover-color);
+		/* Change the cursor, so the user knows to click on it */
+		cursor: pointer;
+	}
+	
+	.accordion-content .sitelink:hover {
+		background-color: var(--sitelink-hover-background-color);
+		color: var(--sitelink-hover-color);
+	}
 }
