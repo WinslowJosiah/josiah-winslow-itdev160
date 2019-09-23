@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Josiah Winslow Does Scripting</title>
+		<!-- Sometimes I need to include this early, so I do it out of habit -->
+		<meta charset="utf-8">
+		<!-- CSS (Cascading Style Sheets) file -->
+		<link rel="stylesheet" href="style.css">
+		<!-- Meta tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="The hub page for all my homework assignments in Web Programming with Scripts.">
+		<meta name="keywords" content="web, programming, with, scripts">
+		<!-- Noscript and print functionality, just in case -->
+		<style>
+			.no-script {
+				display: none;
+			}
+			.yes-print {
+				display: none;
+			}
+			@media print {
+				.no-print {
+					display: none;
+				}
+				.yes-print {
+					display: initial;
+				}
+			}
+		</style>
+		<noscript>
+			<style>
+				.yes-script {
+					display: none;
+				}
+				.no-script {
+					display: initial;
+				}
+			</style>
+		</noscript>
+	</head>
+	<body>
+		<header>
+			<h1>Josiah's Websites</h1>
+		</header>
+		<p>Throughout Josiah Winslow's time at college, he has created a handful of websites. Here are a few of them.</p>
+		<div class="accordion">
+			<input id="accordion-collapse-01" type="checkbox">
+			<label for="accordion-collapse-01">
+				Activity One <span class="accordion-arrow"></span>
+			</label>
+			<div class="accordion-content">
+				<p>A simple website demonstrating blockquotes and accordion menus.</p>
+				<a href="activity-1/index.html" class="sitelink" target="_blank">Check It Out</a>
+			</div>
+		</div>
+		<div class="accordion">
+			<input id="accordion-collapse-02" type="checkbox">
+			<label for="accordion-collapse-02">
+				Activity Two <span class="accordion-arrow"></span>
+			</label>
+			<div class="accordion-content">
+				<p>A mobile-friendly demonstration of tables that have various uses.</p>
+				<a href="activity-2/index.html" class="sitelink" target="_blank">Check It Out</a>
+			</div>
+		</div>
+		<hr>
+		<address>
+			<span class="gmail social-logo"></span> <a href="mailto:winslowjosiah@gmail.com">winslowjosiah@gmail.com</a>
+			<br>
+			<span class="twitter social-logo"></span> <a href="https://twitter.com/WinslowJosiah">@WinslowJosiah</a>
+			<br>
+			<span class="github social-logo"></span> <a href="https://github.com/winslowjosiah">WinslowJosiah</a>
+			<br>
+			<span class="itchio social-logo"></span> <a href="https://winslowjosiah.itch.io">Josiah Winslow</a>
+		</address>
+	</body>
+</html>
