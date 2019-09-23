@@ -1,0 +1,185 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css?family=Paytone+One&display=swap');
+
+/* Mostly color definitions */
+:root {
+	--bismark: #3f677f;
+	--hippie-blue: #5f91b0;
+	--oriental-pink: #c9989a;
+	--terracotta: #e28e52;
+	--thunderbird: #b52d17;
+	--wafer: #ded0c0;
+	
+	--accordion-child-background-color: var(--terracotta);
+	--accordion-parent-background-color: var(--bismark);
+	--accordion-parent-color: var(--wafer);
+	--accordion-parent-hover-background-color: var(--hippie-blue);
+	
+	--body-background-color: var(--wafer);
+	
+	--blockquote-background-color: var(--oriental-pink);
+	--blockquote-left-bar-color: var(--thunderbird);
+	
+	--hr-color: var(--terracotta);
+}
+
+/* Common styles for pretty much everything */
+body {
+	background-color: var(--body-background-color);
+	/* Most of the page will have sans-serif fonts, which look good */
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+	/* Center all of the header */
+	text-align: center;
+}
+
+h1, h2, h3 {
+	/* Change font */
+	font-family: Paytone One;
+	margin: 0.5em 0;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.7em;
+}
+
+hr {
+	border: 2px solid var(--hr-color);
+	margin: 1.5em 0;
+}
+
+blockquote {
+	/* Set colors */
+	background-color: var(--blockquote-background-color);
+	/* Add margin */
+	margin: 1.5em 10px;
+	/* Add padding */
+	padding: .5em 10px;
+	border-left: 10px solid var(--blockquote-left-bar-color);
+	/* Change font */
+	font-family: Georgia, serif;
+}
+
+/* The text of the block quote */
+blockquote .blockquote-quote {
+	/* Add padding */
+	padding: .5em 0;
+	/* Change font */
+	font-style: italic;
+	font-size: 1.25em;
+}
+
+/* What goes before the author of the block quote */
+blockquote .blockquote-author::before {
+	/* Horizontal bar */
+	content: "\002015";
+	padding-left: 1em;
+	/* Change font */
+	font-size: 1.1em;
+}
+
+#accordion-01 ul {
+	/* This is not a list, don't act like it is */
+	list-style-type: none;
+	/* Remove margin and padding */
+	margin: 0;
+	padding: 0;
+	/* This hides the list if the menu is collapsed */
+	overflow: hidden;
+	/* By default, set the height to 0 */
+	max-height: 0;
+	transition: max-height .5s ease;
+}
+
+#accordion-01 li {
+	/* Again, don't act like this is a list */
+	list-style-type: none;
+	background-color: var(--accordion-child-background-color);
+	/* Set width */
+	width: fit-content;
+	/* Add margin */
+	margin: 5px auto;
+	/* Add padding */
+	padding: 5px 10px;
+	/* Add border */
+	border: 2px solid black;
+	border-radius: 4px;
+	/* Change font */
+	font-size: 1.3em;
+}
+
+#accordion-01 #accordion-01-collapse {
+	/* Don't display the checkbox behind this */
+	display: none;
+}
+
+#accordion-01 #accordion-01-collapse:checked ~ ul {
+	/* Have the menu expand to at least its full height */
+	max-height: 999px;
+}
+
+#accordion-01 #accordion-01-collapse:checked ~ label[for="accordion-01-collapse"] .accordion-arrow {
+	/* If checkbox checked, stop bobbing */
+	animation: none;
+}
+
+#accordion-01 label[for="accordion-01-collapse"] {
+	display: block; /* This fixes things */
+	position: relative;
+	/* Set the width to that of the whole page */
+	width: 100%;
+	/* Make sure the whole page MEANS the whole page */
+	box-sizing: border-box;
+	/* Set colors */
+	background-color: var(--accordion-parent-background-color);
+	color: var(--accordion-parent-color);
+	/* Set the border */
+	border: 2px solid black;
+	border-radius: 8px;
+	/* Add margins */
+	margin: 10px auto;
+	/* Add padding */
+	padding: .25em .5em;
+	/* Change font */
+	font-size: 30px;
+	font-variant: small-caps;
+	transition: background-color 1s ease;
+}
+
+#accordion-01 label[for="accordion-01-collapse"] .accordion-arrow {
+	/* Somehow this makes the containing box not grow */
+	position: absolute;
+	padding-left: .5em;
+	/* Automatic content generation ftw */
+	content: url(https://img.icons8.com/material-rounded/30/ded0c0/circled-chevron-down.png);
+	/* Bob up and down using padding-top */
+	animation: bob 1s infinite;
+}
+
+@keyframes bob {
+	0% {
+		padding-top: 0em;
+	}
+	50% {
+		padding-top: .25em;
+	}
+	100% {
+		padding-top: 0em;
+	}
+}
+
+#accordion-01 label[for="accordion-01-collapse"]:hover {
+	background-color: var(--accordion-parent-hover-background-color);
+	/* Change the cursor, so the user knows to click on it */
+	cursor: pointer;
+}
