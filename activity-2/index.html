@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Takuzu</title>
+		<!-- Sometimes I need to include this early, so I do it out of habit -->
+		<meta charset="utf-8">
+		<!-- CSS (Cascading Style Sheets) file -->
+		<link rel="stylesheet" href="style.css">
+		<!-- JavaScript files -->
+		<!-- Make the Takuzu game playable -->
+		<script src="scripts/takuzu.js"></script>
+		<!-- Meta tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="My second homework assignment in Web Programming with Scripts.">
+		<meta name="keywords" content="web, programming, with, scripts">
+		<!-- Noscript and print functionality, just in case -->
+		<style>
+			.no-script {
+				display: none;
+			}
+			.yes-print {
+				display: none;
+			}
+			@media print {
+				.no-print {
+					display: none;
+				}
+				.yes-print {
+					display: initial;
+				}
+			}
+		</style>
+		<noscript>
+			<style>
+				.yes-script {
+					display: none;
+				}
+				.no-script {
+					display: initial;
+				}
+			</style>
+		</noscript>
+	</head>
+	<body>
+		<header>
+			<h1>Takuzu</h1>
+		</header>
+		<p>Takuzu is a logic puzzle, with only three simple rules. It involves a rectangular grid, onto which two types of symbols are placed. The goal is to place symbols in all cells in such a way that:</p>
+		<ul>
+			<li>Each row and column contains an equal number of each type of symbol.</li>
+			<li>There are never more than two of the same symbol next to each other.</li>
+			<li>Each row and column is unique.</li>
+		</ul>
+		<p>There exist many variants of Takuzu, with different names and different choices of symbols.</p>
+		<div class="table-container">
+			<table id="simple-table">
+				<tr>
+					<th>Name</th> <th>Symbols</th>
+				</tr>
+				<tr>
+					<td>0hh1</td> <td>blue square, red square</td>
+				</tr>
+				<tr>
+					<td>Binairo</td> <td>black circle, white circle</td>
+				</tr>
+				<tr>
+					<td>Binary Puzzles</td> <td>digit 0, digit 1</td>
+				</tr>
+				<tr>
+					<td>Eins und Zwei</td> <td>digit 1, digit 2</td>
+				</tr>
+				<tr>
+					<td>Tic-Tac-Logic</td> <td>X symbol, O symbol</td>
+				</tr>
+				<tr>
+					<td>Tohu-Wa-Vohu</td> <td>T symbol, V symbol</td>
+				</tr>
+			</table>
+		</div>
+		<p>These rules are extremely simple, yet they often lead to very complex solutions. Below is a list of some useful strategies in solving Takuzu puzzles.</p>
+		<div class="table-container">
+			<table id="complex-table">
+				<thead>
+					<tr>
+						<td colspan="3">Solution Strategies</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="2">If there are exactly the required number of one type of symbol in a row or column, the rest of the cells must be the other type of symbol.</td> <td>1xx101 → 100101</td>
+					</tr>
+					<tr>
+						<td>If two adjacent cells contain the same symbol, the cells on either side must contain the other symbol.</td> <td>Also, if two cells contain the same symbol with one cell in between, this empty cell must contain the other symbol (to avoid a group of three).</td> <td>xxx00x → xx1001 <br> x1x1xx → x101xx</td>
+					</tr>
+					<tr>
+						<td colspan="2">Eliminate the impossible.</td> <td>110xxx → 110xx1 → 11<strong>000</strong>1 is invalid <br> Therefore, 110xxx → 110xx0</td>
+					</tr>
+					<tr>
+						<td colspan="2">Each row and column must be unique.</td> <td>100101 & 1001xx → 100101 & 100110</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3">Follow those steps, and the puzzle is solved!</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		<p>The history of Takuzu is an interesting one. An Italian puzzle designer named <a href="http://www.zanellati.it/">Adolfo Zanellati</a> invented a version called "Tohu-Wa-Vohu", named after a Hebrew phrase from Genesis 1:2 meaning "chaotic disorder". At around the same time, a version called "Binairo" was independently invented by the Belgian puzzle designers <a href="https://www.peterfrank.be/">Peter De Schepper and Frank Coussement</a>. Meanwhile, <a href="https://www.conceptispuzzles.com/">Conceptis Puzzles</a> claims the origin of a version called "Tic-Tac-Logic" on creating a single-player version of tic-tac-toe; instead of creating three in a row, the goal of Tic-Tac-Logic is to prevent any three in a row from being created.</p>
+		<!-- These radio buttons control the visible theme of the Takuzu board -->
+		<!-- They must be placed in the DOM before any element that will change with the theme -->
+		<input type="radio" name="theme" id="theme-1" value="theme-1" checked>
+		<input type="radio" name="theme" id="theme-2" value="theme-2">
+		<input type="radio" name="theme" id="theme-3" value="theme-3">
+		<input type="radio" name="theme" id="theme-4" value="theme-4">
+		<input type="radio" name="theme" id="theme-5" value="theme-5">
+		<input type="radio" name="theme" id="theme-6" value="theme-6">
+		<!-- This series of paragraphs will not display all at once -->
+		<!-- I've designed some CSS styles such that only one of these will display -->
+		<!-- Depending on if JavaScript is on or off, or if you're viewing this in the browser or on a printed page -->
+		<p class="yes-script no-print">On this page, there is a sample Takuzu board, which you can solve yourself to practice your skills at Takuzu. Click on an empty square once to fill it in with a <img class="tohu-img" src="images\theme1-tohu.png"> symbol, click on it once more to fill it in with a <img class="vohu-img" src="images\theme1-vohu.png"> symbol, and click on it once more to empty it again.</p>
+		<p class="no-script">On this page, there is a sample Takuzu board, which you can solve yourself to practice your skills at Takuzu. It is recommended to turn JavaScript on in your browser, so you can solve it on this webpage; however, you can also print this page in order to solve it with a pencil and paper.</p>
+		<p class="yes-print">On this page, there is a sample Takuzu board, which you can solve yourself to practice your skills at Takuzu. You may solve it below with a pencil and paper; you can also choose to navigate to the original website and solve the JavaScript version.</p>
+		<div id="takuzu-game">
+			<div id="takuzu-message">Takuzu Puzzle</div>
+			<div class="takuzu-container">
+				<table id="takuzu">
+					<!-- There would probably be a "better" way to define this via JavaScript -->
+					<!-- But I wanted the puzzle to be viewable and printable for those who have it disabled -->
+					<!--
+					<tr>
+						<td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td>
+					</tr>
+					<tr>
+						<td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td>
+					</tr>
+					<tr>
+						<td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td>
+					</tr>
+					<tr>
+						<td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="vohu"></td> <td class="vohu"></td> <td class="void"></td> <td class="void"></td>
+					</tr>
+					<tr>
+						<td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="vohu"></td> <td class="void"></td> <td class="tohu"></td> <td class="void"></td>
+					</tr>
+					<tr>
+						<td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td>
+					</tr>
+					<tr>
+						<td class="void"></td> <td class="void"></td> <td class="vohu"></td> <td class="void"></td> <td class="void"></td> <td class="vohu"></td> <td class="void"></td> <td class="void"></td> <td class="vohu"></td> <td class="vohu"></td>
+					</tr>
+					<tr>
+						<td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td>
+					</tr>
+					<tr>
+						<td class="void"></td> <td class="void"></td> <td class="vohu"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="vohu"></td> <td class="void"></td> <td class="void"></td>
+					</tr>
+					<tr>
+						<td class="void"></td> <td class="void"></td> <td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="tohu"></td> <td class="void"></td> <td class="void"></td> <td class="void"></td>
+					</tr>
+					-->
+					<tr>
+						<td class="tohu"> <td class="void"> <td class="void"> <td class="tohu"> <td class="void"> <td class="void">
+					</tr>
+					<tr>
+						<td class="void"> <td class="void"> <td class="vohu"> <td class="tohu"> <td class="void"> <td class="void">
+					</tr>
+					<tr>
+						<td class="tohu"> <td class="tohu"> <td class="void"> <td class="void"> <td class="void"> <td class="void">
+					</tr>
+					<tr>
+						<td class="void"> <td class="void"> <td class="void"> <td class="tohu"> <td class="void"> <td class="tohu">
+					</tr>
+					<tr>
+						<td class="void"> <td class="void"> <td class="void"> <td class="void"> <td class="void"> <td class="tohu">
+					</tr>
+					<tr>
+						<td class="void"> <td class="vohu"> <td class="void"> <td class="void"> <td class="tohu"> <td class="void">
+					</tr>
+					<tr>
+						<td class="void"> <td class="void"> <td class="vohu"> <td class="void"> <td class="vohu"> <td class="vohu">
+					</tr>
+					<tr>
+						<td class="void"> <td class="void"> <td class="void"> <td class="void"> <td class="void"> <td class="void">
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- This looks real slick IMHO -->
+		<div id="theme-selector" class="no-print">
+			<label for="theme-1">0hh1</label>
+			<label for="theme-2">Binairo</label>
+			<label for="theme-3">Binary Puzzles</label>
+			<label for="theme-4">Eins und Zwei</label>
+			<label for="theme-5">Tic-Tac-Logic</label>
+			<label for="theme-6">Tohu-Wa-Vohu</label>
+		</div>
+		<hr>
+		<address>
+			<!-- Rather than use img tags here, I thought it more worth it to inject an SVG image with CSS -->
+			<!-- I hope you don't mind! -->
+			<span class="gmail social-logo"></span> <a href="mailto:winslowjosiah@gmail.com">winslowjosiah@gmail.com</a>
+			<br>
+			<span class="twitter social-logo"></span> <a href="https://twitter.com/WinslowJosiah">@WinslowJosiah</a>
+			<br>
+			<span class="github social-logo"></span> <a href="https://github.com/winslowjosiah">WinslowJosiah</a>
+			<br>
+			<span class="itchio social-logo"></span> <a href="https://winslowjosiah.itch.io">Josiah Winslow</a>
+		</address>
+	</body>
+</html>

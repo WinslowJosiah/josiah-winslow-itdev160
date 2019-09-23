@@ -1,0 +1,439 @@
+/* Nothing to see here */
+
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+@font-face {
+	font-family: Lightmorning;
+	src: url("lightmorning.woff") format("woff");
+}
+
+@font-face {
+	font-family: Trixie;
+	src: url("trixie.woff") format("woff");
+}
+
+/* Mostly color definitions */
+:root {
+	--ash: #cac1b3;
+	--blue-smoke: #73877d;
+	--cape-palliser: #9d734a;
+	--fall-green: #ecebbb;
+	--mint-green: #7cf89f;
+	--new-york-pink: #d77f73;
+	--nutmeg: #764128;
+	--pancho: #ebcea1;
+	--woodsmoke: #0d0f0e;
+	
+	--body-background-color: var(--ash);
+	
+	--header-color: var(--woodsmoke);
+	
+	--hr-color: var(--blue-smoke);
+	
+	--table-background-color: var(--fall-green);
+	--table-border-color: var(--nutmeg);
+	--table-color: var(--woodsmoke);
+	--table-footer-background-color: var(--new-york-pink);
+	--table-footer-color: var(--woodsmoke);
+	--table-header-background-color: var(--cape-palliser);
+	--table-header-color: var(--ash);
+	
+	--takuzu-border-color: var(--woodsmoke);
+	--takuzu-background-color: var(--pancho);
+	--takuzu-win-background-color: var(--mint-green);
+	
+	--theme-selector-background-color: var(--cape-palliser);
+	--theme-selector-border-color: var(--nutmeg);
+	--theme-selector-color: var(--pancho);
+	--theme-selector-hover-background-color: var(--new-york-pink);
+}
+
+/* Common styles for pretty much everything */
+body {
+	background-color: var(--body-background-color);
+	/* Most of the page will have sans-serif fonts, which look good */
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+}
+
+header {
+	/* Center all of the header */
+	text-align: center;
+	color: var(--header-color);
+}
+
+h1 {
+	/* Change font */
+	font-family: Lightmorning;
+	margin: 0.5em 0;
+	font-size: 3em;
+}
+
+hr {
+	border: 2px solid var(--hr-color);
+	margin: 1.5em 0;
+}
+
+ul {
+	list-style-type: circle;
+}
+
+/* Responsive tables */
+.table-container {
+	/* Give table a maximum height */
+	max-height: 70vh;
+	/* Scroll horizontally on x overflow */
+	overflow-x: auto;
+	/* Scroll vertically on y overflow */
+	overflow-y: auto;
+	margin: .5em 0;
+}
+
+table {
+	border: 3px solid var(--table-border-color);
+	/* Turn multiple-borders into one */
+	border-collapse: collapse;
+	background-color: var(--table-background-color);
+}
+
+table th, table td {
+	color: var(--table-color);
+	padding: 0.5em;
+	text-align: center;
+	font-family: Lato;
+	/* Make the text subtly bigger */
+	font-size: 105%;
+}
+
+table th, table thead th, table thead td {
+	border: 3px solid var(--table-border-color);
+	font-family: Garamond, Times New Roman, serif;
+	font-size: 150%;
+	font-weight: bold;
+	background-color: var(--table-header-background-color);
+	color: var(--table-header-color);
+}
+
+table td {
+	border: 2px solid var(--table-border-color);
+}
+
+table tfoot th, table tfoot td {
+	border: 3px solid var(--table-border-color);
+	font-family: Garamond, Times New Roman, serif;
+	font-size: 150%;
+	font-weight: bold;
+	background-color: var(--table-footer-background-color);
+	color: var(--table-footer-color);
+}
+
+#complex-table tbody td:last-child {
+	width: 33%;
+}
+
+/* The Takuzu board */
+.takuzu-container {
+	width: -moz-fit-content;
+	width: fit-content;
+	background-color: var(--takuzu-background-color);
+	border: 2px solid var(--takuzu-border-color);
+	border-radius: 8px;
+	padding: 1em;
+	/* Center the board horizontally */
+	margin: 1em auto;
+	transition: background-color .5s ease;
+}
+
+#takuzu-game.win .takuzu-container {
+	background-color: var(--takuzu-win-background-color);
+}
+
+#takuzu {
+	background: none;
+	border: none;
+	margin: 0;
+}
+
+#takuzu td {
+	border: 2px dotted black;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#takuzu-message {
+	font-family: Trixie;
+	font-size: 2em;
+	text-align: center;
+}
+
+/* Theme selector */
+input[type="radio"][name="theme"] {
+	/* Hide the radio buttons */
+	display: none;
+}
+
+#theme-selector {
+	width: 100%;
+	/* Center all of the theme buttons */
+	text-align: center;
+}
+
+#theme-selector label {
+	display: inline-block;
+	border: 2px solid var(--theme-selector-border-color);
+	border-radius: 10px;
+	background-color: var(--theme-selector-background-color);
+	color: var(--theme-selector-color);
+	font-family: Lato;
+	/* Make the text subtly bigger */
+	font-size: 105%;
+	padding: .5em;
+	margin: .3em;
+	/* Make the user realize this is a button to click on */
+	cursor: pointer;
+	transition: background-color .5s ease;
+}
+
+#theme-selector label:hover {
+	background-color: var(--theme-selector-hover-background-color);
+}
+
+.tohu-img, .vohu-img {
+	box-sizing: border-box;
+	width: 1em;
+	height: 1em;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+/* Lotta copy-pasting here...maybe I need a preprocessor of some sort */
+
+input[type="radio"][name="theme"][value="theme-1"]:checked ~ #takuzu-game #takuzu td.tohu {
+	background-image: url(images/theme1-tohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-1"]:checked ~ #takuzu-game #takuzu td.vohu {
+	background-image: url(images/theme1-vohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-2"]:checked ~ #takuzu-game #takuzu td.tohu {
+	background-image: url(images/theme2-tohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-2"]:checked ~ #takuzu-game #takuzu td.vohu {
+	background-image: url(images/theme2-vohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-2"]:checked ~ * .tohu-img {
+	background-image: url(images/theme2-tohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-2"]:checked ~ * .vohu-img {
+	background-image: url(images/theme2-vohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-3"]:checked ~ #takuzu-game #takuzu td.tohu {
+	background-image: url(images/theme3-tohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-3"]:checked ~ #takuzu-game #takuzu td.vohu {
+	background-image: url(images/theme3-vohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-3"]:checked ~ * .tohu-img {
+	background-image: url(images/theme3-tohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-3"]:checked ~ * .vohu-img {
+	background-image: url(images/theme3-vohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-4"]:checked ~ #takuzu-game #takuzu td.tohu {
+	background-image: url(images/theme4-tohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-4"]:checked ~ #takuzu-game #takuzu td.vohu {
+	background-image: url(images/theme4-vohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-4"]:checked ~ * .tohu-img {
+	background-image: url(images/theme4-tohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-4"]:checked ~ * .vohu-img {
+	background-image: url(images/theme4-vohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-5"]:checked ~ #takuzu-game #takuzu td.tohu {
+	background-image: url(images/theme5-tohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-5"]:checked ~ #takuzu-game #takuzu td.vohu {
+	background-image: url(images/theme5-vohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-5"]:checked ~ * .tohu-img {
+	background-image: url(images/theme5-tohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-5"]:checked ~ * .vohu-img {
+	background-image: url(images/theme5-vohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-6"]:checked ~ #takuzu-game #takuzu td.tohu {
+	background-image: url(images/theme6-tohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-6"]:checked ~ #takuzu-game #takuzu td.vohu {
+	background-image: url(images/theme6-vohu.png);
+}
+
+input[type="radio"][name="theme"][value="theme-6"]:checked ~ * .tohu-img {
+	background-image: url(images/theme6-tohu.png);
+	padding-left: 1em;
+}
+
+input[type="radio"][name="theme"][value="theme-6"]:checked ~ * .vohu-img {
+	background-image: url(images/theme6-vohu.png);
+	padding-left: 1em;
+}
+
+address {
+	line-height: 1.5em;
+}
+
+/* Social media logos */
+.social-logo {
+	position: relative;
+	width: 1.5em;
+	height: 1.5em;
+	top: .3em;
+}
+
+.github {
+	content: url(images/github.svg);
+}
+
+.gmail {
+	content: url(images/gmail.svg);
+}
+
+.itchio {
+	content: url(images/itchio.svg);
+}
+
+.twitter {
+	content: url(images/twitter.svg);
+}
+
+/* If the screen width is 768px or more... */
+@media screen and (min-width: 768px) {
+	.table-container {
+		/* Set a maximum width */
+		max-width: 70vw;
+	}
+}
+
+/* If the screen width is less than 425px... */
+@media screen and (max-width: 425px) {
+	.takuzu-container {
+		padding: .7em;
+	}
+	
+	#takuzu td {
+		width: 24px;
+		height: 24px;
+	}
+	
+	#theme-selector label {
+		font-size: 90%;
+	}
+}
+
+/* Print styles */
+@media print {
+	/* I hate that everything needs !important */
+	
+	body {
+		margin: 0;
+		color: black;
+		background-color: white;
+	}
+	
+	hr {
+		border-color: black;
+	}
+	
+	table {
+		break-inside: avoid;
+		border-color: black !important;
+	}
+	
+	td {
+		/* Background color hack */
+		box-shadow: inset 0 0 0 1000px white;
+		color: black !important;
+		border-color: black !important;
+	}
+	
+	th, thead td, tfoot td {
+		/* Background color hack */
+		box-shadow: inset 0 0 0 1000px silver;
+		color: black !important;
+		border-color: black !important;
+	}
+	
+	a {
+		color: gray;
+	}
+	
+	/* Add the links to the end of the anchors */
+	a[href^="http"]::after {
+		content: " (" attr(href) ")";
+		font-style: normal;
+	}
+	
+	address {
+		break-inside: avoid;
+	}
+	
+	#takuzu-game {
+		break-inside: avoid; 
+	}
+	
+	.takuzu-container {
+		/* Background color hack */
+		box-shadow: inset 0 0 0 1000px white;
+	}
+	
+	#takuzu td {
+		background-image: none !important;
+	}
+	
+	#takuzu td.tohu:not(.void):before {
+		content: "0";
+		color: black !important;
+	}
+	
+	#takuzu td.vohu:not(.void):before {
+		content: "1";
+		color: black !important;
+	}
+	
+	* {
+		transition: none !important;
+	}
+}
