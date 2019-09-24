@@ -20,6 +20,7 @@
 	--new-york-pink: #d77f73;
 	--nutmeg: #764128;
 	--pancho: #ebcea1;
+	--petite-orchid: #e2a39b;
 	--woodsmoke: #0d0f0e;
 	
 	--body-background-color: var(--ash);
@@ -43,8 +44,10 @@
 	--theme-selector-background-color: var(--cape-palliser);
 	--theme-selector-border-color: var(--nutmeg);
 	--theme-selector-color: var(--pancho);
-	--theme-selector-checked-background-color: var(--new-york-pink);
+	--theme-selector-checked-background-color: var(--petite-orchid);
+	--theme-selector-checked-color: var(--nutmeg);
 	--theme-selector-hover-background-color: var(--new-york-pink);
+	--theme-selector-hover-color: var(--pancho);
 }
 
 /* Common styles for pretty much everything */
@@ -194,31 +197,37 @@ input[type="radio"][name="theme"] {
 	margin: .3em;
 	/* Make the user realize this is a button to click on */
 	cursor: pointer;
-	transition: background-color .5s ease;
+	transition: background-color .5s ease, color .5s ease;
 }
 
 input[type="radio"][name="theme"][value="theme-1"]:checked ~ #theme-selector label[for="theme-1"] {
 	background-color: var(--theme-selector-checked-background-color);
+	color: var(--theme-selector-checked-color);
 }
 
 input[type="radio"][name="theme"][value="theme-2"]:checked ~ #theme-selector label[for="theme-2"] {
 	background-color: var(--theme-selector-checked-background-color);
+	color: var(--theme-selector-checked-color);
 }
 
 input[type="radio"][name="theme"][value="theme-3"]:checked ~ #theme-selector label[for="theme-3"] {
 	background-color: var(--theme-selector-checked-background-color);
+	color: var(--theme-selector-checked-color);
 }
 
 input[type="radio"][name="theme"][value="theme-4"]:checked ~ #theme-selector label[for="theme-4"] {
 	background-color: var(--theme-selector-checked-background-color);
+	color: var(--theme-selector-checked-color);
 }
 
 input[type="radio"][name="theme"][value="theme-5"]:checked ~ #theme-selector label[for="theme-5"] {
 	background-color: var(--theme-selector-checked-background-color);
+	color: var(--theme-selector-checked-color);
 }
 
 input[type="radio"][name="theme"][value="theme-6"]:checked ~ #theme-selector label[for="theme-6"] {
 	background-color: var(--theme-selector-checked-background-color);
+	color: var(--theme-selector-checked-color);
 }
 
 .tohu-img, .vohu-img {
@@ -362,6 +371,7 @@ address {
 @media not all and (pointer: coarse) {
 	#theme-selector label:hover {
 		background-color: var(--theme-selector-hover-background-color);
+		color: var(--theme-selector-hover-color);
 	}
 }
 

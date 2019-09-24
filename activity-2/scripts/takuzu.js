@@ -1,6 +1,7 @@
 // Helper functions
 
-const arraysEqual = (arr1, arr2) => {
+// Check array equality in a way that I expect
+const arraysEqual = function (arr1, arr2) {
 	// Return true if same array
 	if (arr1 === arr2) return true;
 	// Return false if either is null
@@ -23,27 +24,28 @@ const arraysEqual = (arr1, arr2) => {
 	return true;
 };
 
-Array.prototype.countOf = function(value) {
-	var counter = 0;
-	forEach(this, v => {
-		if (v==value) counter++;
-	});
-	return counter;
-}
-
-const distinct = (value, index, self) => self.indexOf(value) === index;
-
-const forEach = function (item, func) {
-	Array.prototype.forEach.call(item, func);
+// Count occurrences of value in array
+Array.prototype.countOf = function (v) {
+	return this.filter(x => x === v).length;
 };
 
+// filter() value to filter out duplicates
+const distinct = (value, index, self) => self.indexOf(value) === index;
+
+// Execute a function for each item in a list
+const forEach = function (list, func) {
+	Array.prototype.forEach.call(list, func);
+};
+
+// Check if a value is undefined
 const isUndefined = v => typeof v === "undefined";
 
-Array.prototype.transpose = function() {
+// Transpose an array (turn the columns into rows and vice versa)
+Array.prototype.transpose = function () {
 	return this[0].map((col, i) => this.map(row => row[i]));
 };
 
-// Make indexOf work with nested arrays
+// indexOf() that works with nested arrays
 (function() {
 	var cachedIndexOf = Array.prototype.indexOf;
 	
@@ -98,16 +100,18 @@ window.onload = function() {
 				// Change to symbol 1
 				this.classList.add("tohu");
 			}
+			// Check to see if you've won
 			checkForWin();
 		};
 	});
 };
 
+// Check if you have solved the puzzle
 function checkForWin() {
 	takuzuRows = document.querySelectorAll("#takuzu tr");
 	
 	var takuzu = [];
-	forEach(takuzuRows, function(row) {
+	forEach(takuzuRows, row => {
 		var thisRow = [];
 		var takuzuColumns = row.getElementsByTagName("td");
 		forEach(takuzuColumns, function(col) {
@@ -162,19 +166,19 @@ function checkForWin() {
 	}
 }
 
+// Check an array for 3 consecutive equal values
 function checkRunOf3(arr) {
-	var run = 1;
-	var lastVal;
-	for (v of arr) {
-		if (v==lastVal)
+	for (var i = 0; i < arr.length; i++) {
+		var v = arr[i];
+		if (i == 0 || v != lastVal)
 		{
-			run++;
-			if (run>=3) return true;
+			var run = 1;
+			var lastVal = v;
 		}
 		else
 		{
-			lastVal = v;
-			run = 1;
+			run++;
+			if (run>=3) return true;
 		}
 	}
 	return false;
