@@ -437,7 +437,7 @@ address {
 	}
 	
 	/* Add the links to the end of the anchors */
-	a[href^="http"]::after {
+	a[href^="http"]:after {
 		content: " (" attr(href) ")";
 		font-style: normal;
 	}
