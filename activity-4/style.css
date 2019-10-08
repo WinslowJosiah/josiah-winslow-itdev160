@@ -5,6 +5,7 @@
 /* Mostly color definitions */
 :root {
 	--chalky: #edcd95;
+	--muddy-waters: #bc845e;
 	--mule-fawn: #944730;
 	--santa-fe: #b77565;
 	--tumbleweed: #e1b083;
@@ -22,6 +23,11 @@
 	
 	--product-background-color: var(--tumbleweed);
 	--product-color: var(--zeus);
+	
+	--toc-background-color: var(--muddy-waters);
+	--toc-color: var(--zeus);
+	--toc-hover-color: var(--chalky);
+	--toc-shadow-color: var(--mule-fawn);
 }
 
 /* Common styles for pretty much everything */
@@ -58,6 +64,40 @@ h3 {
 hr {
 	border: 2px solid var(--hr-color);
 	margin: 1.5em 0;
+}
+
+#toc-container {
+	background-color: var(--toc-background-color);
+	color: var(--toc-color);
+	border: 2px solid black;
+	box-shadow: 10px 10px 7px var(--toc-shadow-color);
+	width: -moz-fit-content;
+	width: fit-content;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+}
+
+#toc-container h2 {
+	margin: 0;
+}
+
+#toc-container ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#toc-container li {
+	padding: 3px 0;
+}
+
+#toc-container li a {
+	text-decoration: none;
+	color: var(--toc-color);
+	font-family: Vollkorn SC;
+	font-weight: bold;
+	transition: color .3s ease;
 }
 
 .product {
@@ -178,6 +218,13 @@ address {
 
 .twitter {
 	content: url(images/twitter.png);
+}
+
+/* Display hover effects only on non-mobile browsers */
+@media not all and (pointer: coarse) {
+	#toc-container li a:hover {
+		color: var(--toc-hover-color);
+	}
 }
 
 /* If the screen width is less than 620px... */

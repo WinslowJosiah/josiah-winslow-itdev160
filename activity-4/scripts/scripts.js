@@ -10,7 +10,7 @@ const forEach = function (list, func) {
 // Declarations
 var tocEl = document.getElementById("toc-container");
 var tocHTML =
-	"<h2>On this page</h2>" +
+	"<h2>On this page:</h2>" +
 	"<ul>";
 
 var nextLine, productTitle, productLink;
