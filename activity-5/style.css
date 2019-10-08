@@ -1,0 +1,187 @@
+@font-face {
+	font-family: Symbola;
+	src: url("symbola.woff") format("woff");
+}
+
+/* Mostly color definitions */
+:root {
+	--athens-gray: #f1f1f4;
+	--ebony-clay: #212b35;
+	--indigo: #5c6ac4;
+	--old-lavender: #795877;
+	--pale-sky: #637381;
+	--polo-blue: #859dc9;
+	
+	--a-color: var(--indigo);
+	--a-visited-color: var(--old-lavender);
+	
+	--body-background-color: var(--athens-gray);
+	--body-color: var(--ebony-clay);
+	
+	--credits-color: var(--pale-sky);
+	
+	--header-color: var(--ebony-clay);
+	
+	--hr-color: var(--old-lavender);
+	
+	--package-footer-border-color: var(--polo-blue);
+	--package-link-background-color: var(--old-lavender);
+	--package-link-color: var(--athens-gray);
+}
+
+/* Common styles for pretty much everything */
+body {
+	background-color: var(--body-background-color);
+	color: var(--body-color);
+	font-family: Work Sans;
+	font-size: 16px;
+}
+
+header {
+	color: var(--header-color);
+	font-family: Open Sans;
+	margin: 25px;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.7em;
+}
+
+main {
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+a {
+	color: var(--a-color);
+	transition: filter .5s ease;
+}
+
+a:visited {
+	color: var(--a-visited-color);
+}
+
+a:hover {
+	/* Make the links glow a bit */
+	filter: brightness(125%);
+}
+
+#credits {
+	color: var(--credits-color);
+}
+
+img.article-img {
+	display: block;
+	/* Center it horizontally */
+	margin: auto;
+	/* Make it WIDE */
+	width: 90%;
+	/* Don't make it too wide */
+	max-width: 620px;
+}
+
+.package-container {
+	margin: 20px 0;
+}
+
+.package-container header {
+	margin: 0;
+}
+
+.package-container footer {
+	overflow-x: auto;
+}
+
+.package-container footer span {
+	display: table-cell;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-right: 3px solid var(--package-footer-border-color);
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.package-container footer span:nth-of-type(1) {
+	border-left: 3px solid var(--package-footer-border-color);
+}
+
+/* All package download counters */
+span[id$="-downloads"]:before {
+	content: "";
+	/* This lets the icon display properly */
+	display: inline-block;
+	width: 1.5em;
+	height: 1.5em;
+	background-image: url(https://img.icons8.com/material/32/212b35/software-installer.png);
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-origin: content-box;
+	vertical-align: text-bottom;
+	padding-right: .5em;
+}
+
+span[id$="-downloads"]:after {
+	content: " downloads";
+}
+
+/* All package links */
+a[id$="-link"] {
+	display: block;
+	width: -moz-fit-content;
+	width: fit-content;
+	background-color: var(--package-link-background-color);
+	color: var(--package-link-color);
+	text-decoration: none;
+	margin: 1em 0;
+	padding: .5em 1em;
+	font-weight: bold;
+}
+
+/* All package star counters */
+span[id$="-stars"] {
+	/* This font is guaranteed to display the Unicode characters of the stars */
+	font-family: Symbola;
+	font-size: 1.5em;
+}
+
+hr {
+	border: 2px solid var(--hr-color);
+}
+
+address {
+	line-height: 1.5em;
+}
+
+/* Social media logos */
+.social-logo {
+	position: relative;
+	width: 1.5em;
+	height: 1.5em;
+	top: .3em;
+}
+
+.github {
+	content: url(images/github.png);
+}
+
+.gmail {
+	content: url(images/gmail.png);
+}
+
+.itchio {
+	content: url(images/itchio.png);
+}
+
+.twitter {
+	content: url(images/twitter.png);
+}
+
+/* If the screen width is less than 444px... */
+@media screen and (max-width: 444px) {
+	
+}
