@@ -67,7 +67,7 @@ a:visited {
 
 a:hover {
 	/* Make the links glow a bit */
-	filter: brightness(125%);
+	filter: brightness(140%);
 }
 
 #credits {
@@ -96,37 +96,17 @@ img.article-img {
 	overflow-x: auto;
 }
 
-.package-container footer span {
+.package-container footer div {
 	display: table-cell;
+	height: 100%;
 	padding-left: 1em;
 	padding-right: 1em;
 	border-right: 3px solid var(--package-footer-border-color);
-	vertical-align: middle;
 	white-space: nowrap;
 }
 
-.package-container footer span:nth-of-type(1) {
+.package-container footer div:nth-of-type(1) {
 	border-left: 3px solid var(--package-footer-border-color);
-}
-
-/* All package download counters */
-span[id$="-downloads"]:before {
-	content: "";
-	/* This lets the icon display properly */
-	display: inline-block;
-	width: 1.5em;
-	height: 1.5em;
-	background-image: url(https://img.icons8.com/material/32/212b35/software-installer.png);
-	background-position: bottom left;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-origin: content-box;
-	vertical-align: text-bottom;
-	padding-right: .5em;
-}
-
-span[id$="-downloads"]:after {
-	content: " downloads";
 }
 
 /* All package links */
@@ -142,8 +122,28 @@ a[id$="-link"] {
 	font-weight: bold;
 }
 
+/* All package download counters */
+div[id$="-downloads"]:before {
+	content: "";
+	/* This lets the icon display properly */
+	display: inline-block;
+	width: 1.5em;
+	height: 1.5em;
+	background-image: url(https://img.icons8.com/material/32/212b35/software-installer.png);
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-origin: content-box;
+	vertical-align: text-bottom;
+	padding-right: .5em;
+}
+
+div[id$="-downloads"]:after {
+	content: " downloads";
+}
+
 /* All package star counters */
-span[id$="-stars"] {
+div[id$="-stars"] {
 	/* This font is guaranteed to display the Unicode characters of the stars */
 	font-family: Symbola;
 	font-size: 1.5em;
@@ -179,9 +179,4 @@ address {
 
 .twitter {
 	content: url(images/twitter.png);
-}
-
-/* If the screen width is less than 444px... */
-@media screen and (max-width: 444px) {
-	
 }
