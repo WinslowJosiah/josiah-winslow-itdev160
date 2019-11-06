@@ -1,0 +1,224 @@
+@font-face {
+	font-family: San Francisco Mono;
+	src: url("SF-Mono-Regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: San Francisco Pro Display;
+	src: url("SF-Pro-Display-Regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: San Francisco Pro;
+	src: url("SF-Pro-Text-Regular.woff") format("woff");
+}
+
+/* Mostly color definitions */
+:root {
+	--black-haze: #f6f7f7;
+	--chetwode-blue: #91abde;
+	--cold-turkey: #d3babe;
+	--cornflower-blue: #6da0e5;
+	--royal-blue: #436ceb;
+	
+	--body-background-color: var(--black-haze);
+	
+	--button-background-color: var(--cornflower-blue);
+	--button-border-color: midnightBlue;
+	--button-color: var(--black-haze);
+	--button-shadow-color: navy;
+	
+	--hr-color: var(--chetwode-blue);
+	
+	--message-in-background-color: dodgerBlue;
+	--message-in-color: aliceBlue;
+	--message-out-background-color: lightGray;
+	--message-out-color: black;
+	--message-unknown-background-color: limeGreen;
+	--message-unknown-color: mintCream;
+	
+	--textarea-border-color: darkGray;
+}
+
+/* Common styles for pretty much everything */
+body {
+	background-color: var(--body-background-color);
+	font-family: San Francisco Pro;
+	font-size: 16px;
+}
+
+header {
+	font-family: San Francisco Pro Display;
+	text-align: center;
+}
+
+/* Twemoji inserts some huge images in place of emojis, this has to change */
+img.emoji {
+   height: 1em;
+   width: 1em;
+   margin: 0 .05em 0 .1em;
+   vertical-align: -0.1em;
+}
+
+button {
+	background-color: var(--button-background-color);
+	color: var(--button-color);
+	font-weight: bold;
+	border: 2px solid var(--button-border-color);
+	border-radius: 6px;
+	margin: .25em .5em .75em .5em;
+	padding: .5em 1em;
+	/* Remove the blue outline */
+	outline: none;
+	box-shadow: 0 .5em var(--button-shadow-color);
+	transition:
+		transform 0.1s ease, box-shadow 0.1s ease,
+		filter 0.25s ease;
+}
+
+/* On non-mobile browsers... */
+@media not all and (pointer: coarse) {
+	button:hover {
+		cursor: pointer;
+		filter: brightness(115%);
+	}
+}
+
+button:active {
+	transform: translateY(.25em);
+	box-shadow: 0 .25em var(--button-shadow-color);
+}
+
+#message-container {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+#input-container {
+	display: flex;
+	min-width: -moz-fit-content;
+	min-width: fit-content;
+	max-width: 700px;
+	/* Center the container horizontally */
+	margin: 0 auto;
+	padding: .25em .5em;
+	/* Center the contents horizontally */
+	text-align: center;
+}
+
+#message-input-container {
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
+}
+
+#message-input {
+	flex: 1 1 auto;
+	height: 1.25em;
+	font-family: San Francisco Mono;
+	border: 1.5px solid var(--textarea-border-color);
+	border-radius: .5em;
+	padding: .5em;
+	margin: .5em .75em;
+	overflow: hidden;
+	outline: none;
+	resize: none;
+}
+
+.message {
+	/* Make the absolutely positioned :after play nice */
+	position: relative;
+	width: -moz-fit-content;
+	width: fit-content;
+	min-width: .5em;
+	max-width: 75%;
+	font-size: 18px;
+	/* Make it round */
+	border-radius: .5em;
+	padding: .75em;
+	padding-top: 1em;
+	margin-bottom: 1.25em;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.message[data-user]:before {
+	content: attr(data-user) "\A";
+	display: block;
+	font-size: 10px;
+	margin: .5em 0;
+}
+
+.message:after {
+	content: "";
+	position: absolute;
+	bottom: -2em;
+	border-style: solid;
+	border-width: 1em .5em 1em .5em;
+}
+
+.message.in-message {
+	background-color: var(--message-in-background-color);
+	color: var(--message-in-color);
+}
+
+.message.in-message:after {
+	border-color: var(--message-in-background-color) transparent transparent;
+	left: .5em;
+}
+
+.message.out-message {
+	background-color: var(--message-out-background-color);
+	color: var(--message-out-color);
+	/* Right-align */
+	margin-left: auto;
+}
+
+.message.out-message:after {
+	border-color: var(--message-out-background-color) transparent transparent;
+	right: .5em;
+}
+
+.message.unknown-message {
+	background-color: var(--message-unknown-background-color);
+	color: var(--message-unknown-color);
+}
+
+.message.unknown-message:after {
+	border-color: var(--message-unknown-background-color) transparent transparent;
+	left: .5em;
+}
+
+hr {
+	border: 2px solid var(--hr-color);
+}
+
+address {
+	line-height: 1.5em;
+}
+
+address {
+	line-height: 1.5em;
+}
+
+jw-icon {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+}
+
+jw-icon[type="github"] {
+	content: url(images/github.png);
+}
+
+jw-icon[type="gmail"] {
+	content: url(images/gmail.png);
+}
+
+jw-icon[type="itchio"] {
+	content: url(images/itchio.png);
+}
+
+jw-icon[type="twitter"] {
+	content: url(images/twitter.png);
+}
