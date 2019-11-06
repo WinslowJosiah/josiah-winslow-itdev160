@@ -143,7 +143,7 @@ button:active {
 }
 
 .message[data-user]:before {
-	content: attr(data-user) "\A";
+	content: attr(data-user);
 	display: block;
 	font-size: 10px;
 	margin: .5em 0;
