@@ -313,7 +313,7 @@ async function sendMsg(text) {
 	await sleep(500);
 	showTyping();
 	// Simulate typing
-	await sleep(text.replace(emojiRegex, "#").length * 15);
+	await sleep(text.replace(emojiRegex, "").length * 15);
 	// Hide the typing animation
 	hideTyping();
 	// Do the rather immediate work of adding the messages
