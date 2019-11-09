@@ -91,7 +91,9 @@ button:active {
 
 #message-container {
 	max-width: 700px;
+	height: 70vh;
 	margin: 0 auto;
+	overflow-y: auto;
 }
 
 #input-container {
@@ -132,65 +134,122 @@ button:active {
 	width: fit-content;
 	min-width: .5em;
 	max-width: 75%;
-	font-size: 18px;
+	font-size: 16px;
 	/* Make it round */
 	border-radius: .5em;
 	padding: .75em;
 	padding-top: 1em;
-	margin-bottom: 1.25em;
+	margin: .5em 0;
 	white-space: pre-wrap;
 	word-wrap: break-word;
+}
+
+/* If the screen width is less than 425px... */
+@media screen and (max-width: 425px) {
+	.message {
+		font-size: 14px;
+	}
+}
+
+.message[data-tail] {
+	/* Give the messages with a tail a larger margin */
+	margin-bottom: 1.25em;
 }
 
 .message[data-user]:before {
 	content: attr(data-user);
 	display: block;
-	font-size: 10px;
+	font-size: .6em;
 	margin: .5em 0;
 }
 
-.message:after {
+.message[data-tail]:after {
 	content: "";
 	display: inline-block;
 	position: absolute;
-	box-sizing: border-box;
 	/* Height needs to be specified as 0 to avoid bug in Firefox */
 	height: 0;
 	bottom: -1.95em;
+	z-index: -1;
 	border-style: solid;
 	border-width: 1em .5em 1em .5em;
 }
 
-.message.in-message {
+.message[data-type="in-message"] {
 	background-color: var(--message-in-background-color);
 	color: var(--message-in-color);
 }
 
-.message.in-message:after {
+.message[data-type="in-message"]:after {
 	border-color: var(--message-in-background-color) transparent transparent;
 	left: .5em;
 }
 
-.message.out-message {
+.message[data-type="out-message"] {
 	background-color: var(--message-out-background-color);
 	color: var(--message-out-color);
 	/* Right-align */
 	margin-left: auto;
 }
 
-.message.out-message:after {
+.message[data-type="out-message"]:after {
 	border-color: var(--message-out-background-color) transparent transparent;
 	right: .5em;
 }
 
-.message.unknown-message {
+.message[data-type="unknown-message"] {
 	background-color: var(--message-unknown-background-color);
 	color: var(--message-unknown-color);
 }
 
-.message.unknown-message:after {
+.message[data-type="unknown-message"]:after {
 	border-color: var(--message-unknown-background-color) transparent transparent;
 	left: .5em;
+}
+
+#message-typing, #message-typing:before, #message-typing:after {
+	position: relative;
+	border-radius: 50%;
+	width: .75em;
+	height: .75em;
+	left: .5em;
+	animation: typing .9s ease both infinite;
+}
+
+#message-typing {
+	display: none;
+}
+
+#message-typing:before {
+	content: "";
+	position: absolute;
+	left: 1em;
+	animation-delay: .3s;
+}
+
+#message-typing:after {
+	content: "";
+	position: absolute;
+	left: 2em;
+	animation-delay: .6s;
+}
+
+@keyframes typing {
+	0%, 100% {
+		background-color: darkGray;
+	}
+	21% {
+		background-color: darkGray;
+	}
+	33% {
+		background-color: gray;
+	}
+	40% {
+		background-color: gray;
+	}
+	52% {
+		background-color: darkGray;
+	}
 }
 
 hr {

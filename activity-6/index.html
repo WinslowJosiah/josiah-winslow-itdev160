@@ -9,10 +9,12 @@
 		<!-- JavaScript files -->
 		<!-- Run the messages app -->
 		<script src="scripts/msgapp.js"></script>
+		<!-- Run the chatbot -->
+		<script src="scripts/msgapp-chat.js"></script>
 		<!-- Autosize textareas upon changes (not my own code) -->
 		<script src="scripts/autosize.min.js"></script>
 		<!-- Make emojis look cool -->
-		<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+		<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
 		<!-- Meta tags -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="My sixth homework assignment in Web Programming with Scripts.">
@@ -51,10 +53,11 @@
 		</header>
 		<main>
 			<section id="message-container" class="messages">
+			<div id="message-typing"></div>
 			</section>
 			<section id="input-container">
 				<div id="message-input-container">
-					<textarea id="message-input" rows="1" cols="10"></textarea>
+					<textarea id="message-input" rows="1" cols="1"></textarea>
 				</div>
 				<div id="buttons-container">
 					<button id="send-button">Send</button>
