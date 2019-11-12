@@ -1,0 +1,104 @@
+/* Mostly color definitions */
+:root {
+	--bastille: #221723;
+	--hippie-pink: #af4155;
+	--sand-dune: #8b6f68;
+	--snow-drift: #f4f7f5;
+	--waterloo: #85849a;
+	
+	--active-list-border-color: var(--sand-dune);
+	
+	--body-background-color: var(--snow-drift);
+	
+	--completed-list-border-color: var(--hippie-pink);
+	
+	--hr-color: var(--waterloo);
+}
+
+/* Common styles for pretty much everything */
+body {
+	background-color: var(--body-background-color);
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+}
+
+header {
+	text-align: center;
+}
+
+ul, ol {
+	margin: .5em auto;
+	width: -moz-fit-content;
+	width: fit-content;
+	min-width: 2em;
+	max-width: 90%;
+	min-height: 2em;
+	word-wrap: break-word;
+}
+
+li {
+	width: -moz-fit-content;
+	width: fit-content;
+	padding: 5px;
+}
+
+#input-container {
+	text-align: center;
+}
+
+#todo-list-container {
+	margin-top: 20px;
+}
+
+#active-list {
+	border: 2px solid var(--active-list-border-color);
+	border-radius: 2em;
+}
+
+#active-list li:hover  {
+	cursor: pointer;
+	text-decoration: red line-through;
+}
+
+#completed-list {
+	list-style-type: square;
+	border: 2px dashed var(--completed-list-border-color);
+}
+
+#completed-list li {
+	text-decoration: line-through;
+}
+
+hr {
+	border: 2px solid var(--hr-color);
+}
+
+address {
+	line-height: 1.5em;
+}
+
+address {
+	line-height: 1.5em;
+}
+
+jw-icon {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+}
+
+jw-icon[type="github"] {
+	content: url(images/github.png);
+}
+
+jw-icon[type="gmail"] {
+	content: url(images/gmail.png);
+}
+
+jw-icon[type="itchio"] {
+	content: url(images/itchio.png);
+}
+
+jw-icon[type="twitter"] {
+	content: url(images/twitter.png);
+}
