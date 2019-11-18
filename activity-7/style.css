@@ -57,6 +57,8 @@ li {
 
 #active-list li:hover  {
 	cursor: pointer;
+	text-decoration: line-through;
+	/* This works in a lot of modern browsers, but not all of them */
 	text-decoration: red line-through;
 }
 
