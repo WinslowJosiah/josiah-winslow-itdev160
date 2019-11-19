@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>My Cool Blog Site</title>
+		<!-- Sometimes I need to include this early, so I do it out of habit -->
+		<meta charset="utf-8">
+		<!-- I don't usually import Google Fonts this way -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<!-- CSS (Cascading Style Sheets) file -->
+		<link rel="stylesheet" href="style.css">
+		<!-- JavaScript files -->
+		<!-- Do something -->
+		<script src="scripts/scripts.js"></script>
+		<!-- Meta tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="My eighth homework assignment in Web Programming with Scripts.">
+		<meta name="keywords" content="web, programming, with, scripts">
+		<!-- Noscript and print functionality, just in case -->
+		<style>
+			.no-script {
+				display: none;
+			}
+			.yes-print {
+				display: none;
+			}
+			@media print {
+				.no-print {
+					display: none;
+				}
+				.yes-print {
+					display: initial;
+				}
+			}
+		</style>
+		<noscript>
+			<style>
+				.yes-script {
+					display: none;
+				}
+				.no-script {
+					display: initial;
+				}
+			</style>
+		</noscript>
+	</head>
+	<body>
+		<header>
+			<h1 class="header-title">My Cool Blog Site</h1>
+			<div class="header-menu">
+				<button id="new-button">New</button>
+			</div>
+		</header>
+		<main>
+			<section id="display-content"></section>
+		</main>
+		<footer>
+			<p>This is not a blog in the traditional sense. Its contents will be wiped after you leave.</p>
+			<p>&copy; Copyright No-One 2019.</p>
+		</footer>
+		
+		<div class="modal" id="modal-dialog">
+			<section>
+				<h2>Title</h2>
+				<input type="text" id="edit-title-text">
+				<span id="edit-title-message"></span>
+			</section>
+			<section>
+				<h2>Content</h2>
+				<textarea id="edit-content-text" cols="80" rows="8"></textarea>
+				<span id="edit-content-message"></span>
+			</section>
+			<footer>
+				<button type="button" id="cancel-button">Cancel</button>
+				<button type="button" id="save-button">Save</button>
+			</footer>
+		</div>
+		<div id="modal-backdrop"></div>
+	</body>
+</html>
