@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Neat Quotes</title>
+		<!-- Sometimes I need to include this early, so I do it out of habit -->
+		<meta charset="utf-8">
+		<!-- I don't usually import Google Fonts this way -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<!-- CSS (Cascading Style Sheets) file -->
+		<link rel="stylesheet" href="style.css">
+		<!-- JavaScript files -->
+		<!-- Include jQuery -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<!-- Do something -->
+		<script src="scripts/scripts.js"></script>
+		<!-- Meta tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="My ninth homework assignment in Web Programming with Scripts.">
+		<meta name="keywords" content="web, programming, with, scripts">
+		<!-- Noscript and print functionality, just in case -->
+		<style>
+			.no-script {
+				display: none;
+			}
+			.yes-print {
+				display: none;
+			}
+			@media print {
+				.no-print {
+					display: none;
+				}
+				.yes-print {
+					display: initial;
+				}
+			}
+		</style>
+		<noscript>
+			<style>
+				.yes-script {
+					display: none;
+				}
+				.no-script {
+					display: initial;
+				}
+			</style>
+		</noscript>
+	</head>
+	<body>
+		<header id="main-header">
+			<h1>Neat Quotes</h1>
+		</header>
+		<main>
+			<section id="sidebar">
+				<ul id="nav-container">
+				</ul>
+			</section>
+			<section id="post-container">
+				<section id="intro">
+					<h2>Welcome to Neat Quotes</h2>
+					<p>Need an inspiring quote? Select a topic from the menu!</p>
+					<blockquote>[A] quotation is a handy thing to have about, saving one the trouble of thinking for oneself, always a laborious business.</blockquote>
+					<span class="author">A.A. Milne</span>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>
